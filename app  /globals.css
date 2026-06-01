@@ -1,1 +1,11 @@
-globals.css
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #050507;
+  color: white;
+  font-family: Arial, sans-serif;
+}
