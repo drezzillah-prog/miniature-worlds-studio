@@ -8,13 +8,13 @@ export default function Hero() {
       className="relative h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center scale-105"
-        style={{
-          backgroundImage:
-            "url('/images/hero-bg.jpg')",
-        }}
-      />
+ <div
+  className="absolute inset-0 bg-cover bg-center scale-105"
+  style={{
+    backgroundImage:
+      "url('/images/magnific-dark-tavern-fantasy-mini-1.jpg')",
+  }}
+/>
 
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/70" />
