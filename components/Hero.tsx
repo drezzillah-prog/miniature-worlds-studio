@@ -10,10 +10,7 @@ export default function Hero() {
       {/* Background */}
  <div
   className="absolute inset-0 bg-cover bg-center scale-105"
-  style={{
-    backgroundImage:
-      "url('/images/magnific-dark-tavern-fantasy-mini-1.jpg')",
-  }}
+style={{backgroundImage:"url('/magnific-dark-tavern-fantasy-mini-1.png')",}}
 />
 
       {/* Dark overlay */}
