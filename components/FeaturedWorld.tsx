@@ -6,7 +6,7 @@ export default function FeaturedWorld() {
 
         <div>
           <img
-            src="/images/magnific-dark-tavern-fantasy-mini-2.jpg"
+            src="/magnific-dark-tavern-fantasy-mini-2.png"
             alt="featured world"
             className="rounded-3xl shadow-2xl"
           />
