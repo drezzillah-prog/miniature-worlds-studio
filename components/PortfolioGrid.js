@@ -4,13 +4,28 @@ import {useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {categories,projects} from "@/lib/projects";
-import {historicalSprite} from "@/lib/historicalSprite";
+import c1 from "@/lib/history-sprite/c1";
+import c2 from "@/lib/history-sprite/c2";
+import c3 from "@/lib/history-sprite/c3";
+import c4 from "@/lib/history-sprite/c4";
+import c5 from "@/lib/history-sprite/c5";
+import c6 from "@/lib/history-sprite/c6";
+import c7 from "@/lib/history-sprite/c7";
 
-const historicalStudies=Array.from({length:10},(_,index)=>({
-  number:index+1,
-  col:index%5,
-  row:Math.floor(index/5)
-}));
+const historicalSprite=`data:image/jpeg;base64,${c1}${c2}${c3}${c4}${c5}${c6}${c7}`;
+
+const historicalStudies=[
+  {number:1,col:0,row:0,title:"Roman bakery courtyard"},
+  {number:2,col:1,row:0,title:"Viking longhall gathering"},
+  {number:3,col:2,row:0,title:"Ottoman bazaar at dusk"},
+  {number:4,col:3,row:0,title:"Edo village canal"},
+  {number:5,col:4,row:0,title:"Medieval monastery cloister"},
+  {number:6,col:0,row:1,title:"Renaissance courtyard"},
+  {number:7,col:1,row:1,title:"Industrial harbour"},
+  {number:8,col:2,row:1,title:"Victorian railway station"},
+  {number:9,col:3,row:1,title:"Hilltop fortress"},
+  {number:10,col:4,row:1,title:"Gothic cathedral square"}
+];
 
 export default function PortfolioGrid(){
   const [active,setActive]=useState("All");
@@ -22,27 +37,27 @@ export default function PortfolioGrid(){
       {categories.map((category)=><button key={category} className={active===category?"filter-button active":"filter-button"} onClick={()=>setActive(category)} type="button">{category}</button>)}
     </div>
 
-    {showHistorical&&<section className="historical-gallery" aria-label="Historical miniature studies">
+    {showHistorical&&<section className="historical-gallery" aria-label="Historical miniature worlds">
       <div className="historical-gallery-head">
         <div>
           <p className="kicker">Historical worlds</p>
-          <h2>Across eras, cultures and scales.</h2>
+          <h2>History, rebuilt by hand.</h2>
         </div>
-        <p>Photographic concept studies showing the studio direction: handmade miniature worlds photographed from the maker’s own point of view, with the working table and materials allowed to remain part of the image.</p>
+        <p>Each scene is built piece by piece — architecture, surfaces, figures, vegetation, lighting and weathering are chosen to make the period feel lived-in rather than decorative. From intimate courtyards and workshops to stations, fortresses and cathedrals, every world is shaped around believable scale, careful craft and atmosphere.</p>
       </div>
       <div className="historical-photo-grid">
-        {historicalStudies.map(({number,col,row})=><figure className="historical-photo" key={number}>
+        {historicalStudies.map(({number,col,row,title})=><figure className="historical-photo" key={number}>
           <div
             className="historical-sprite-crop"
             role="img"
-            aria-label={"Historical miniature study "+String(number).padStart(2,"0")}
+            aria-label={title}
             style={{
               backgroundImage:`url("${historicalSprite}")`,
               backgroundSize:"500% 200%",
               backgroundPosition:`${col*25}% ${row*100}%`
             }}
           />
-          <figcaption><span>{String(number).padStart(2,"0")}</span><span>Historical study</span></figcaption>
+          <figcaption><span>{String(number).padStart(2,"0")}</span><span>{title}</span></figcaption>
         </figure>)}
       </div>
     </section>}
