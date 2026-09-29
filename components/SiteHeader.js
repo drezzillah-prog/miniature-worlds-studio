@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const links=[["Worlds","/portfolio"],["About","/about"],["Services","/services"],["Process","/commissions"],["FAQ","/faq"],["Studio Notes","/journal"]];
+const links=[["Worlds","/portfolio"],["About","/about"],["Services","/services"],["Atmosphere & Engineering","/atmosphere-engineering"],["Process","/commissions"],["FAQ","/faq"],["Studio Notes","/journal"]];
 
 export default function SiteHeader(){
   return <header className="site-header"><div className="nav-shell">

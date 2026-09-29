@@ -49,3 +49,43 @@
   .spooky-direction-row{margin-bottom:26px}
   .spooky-direction{padding:10px 12px;font-size:.6rem}
 }
+
+/* Atmosphere & Engineering */
+.atmosphere-hero .lede{max-width:860px}
+.effects-section{padding-bottom:130px}
+.effects-intro{display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:end;margin-bottom:45px}
+.effects-intro h2{max-width:720px;margin-bottom:0}
+.effects-intro>p{margin:0;color:#675f56;max-width:660px}
+.effects-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.effects-grid article{min-height:285px;padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.effects-grid article>span,.aftercare-grid article>span{font-family:var(--serif);color:var(--brass);font-size:1.05rem}
+.effects-grid h3{font-size:clamp(1.55rem,2.2vw,2.25rem);margin:45px 0 12px}
+.effects-grid p{color:#6b6258;margin:0}
+.private-process{margin-top:70px;padding:70px;background:#1c1a17;color:var(--bone)}
+.private-process h2{color:#f1e7d8;max-width:760px}
+.private-process p:not(.kicker){color:#bdb4a8;max-width:820px}
+.approval-section{background:var(--forest);color:var(--bone);padding:120px 0}
+.approval-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:10vw;align-items:start}
+.approval-grid h2{color:#f0e7d8}
+.approval-grid>div:last-child p{color:#c6bdb0}
+.aftercare-section{padding:125px 0 35px}
+.aftercare-heading{max-width:900px;margin-bottom:45px}
+.aftercare-grid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.aftercare-grid article{padding:30px;min-height:300px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.aftercare-grid h3{font-size:clamp(1.65rem,2.4vw,2.5rem);margin:35px 0 12px}
+.aftercare-grid p{color:#685f55;margin:0}
+.aftercare-note{margin-top:24px;padding:18px 0;border-top:1px solid var(--line);color:#71675d;font-size:.82rem}
+@media(max-width:1050px){
+  .desktop-nav{gap:16px;font-size:.68rem}
+  .effects-grid{grid-template-columns:repeat(2,1fr)}
+  .approval-grid{grid-template-columns:1fr;gap:45px}
+}
+@media(max-width:720px){
+  .effects-section{padding-bottom:90px}
+  .effects-intro{grid-template-columns:1fr;gap:18px}
+  .effects-grid,.aftercare-grid{grid-template-columns:1fr}
+  .effects-grid article,.aftercare-grid article{min-height:auto}
+  .private-process{padding:38px 24px;margin-top:45px}
+  .approval-section{padding:90px 0}
+  .aftercare-section{padding-top:90px}
+}
