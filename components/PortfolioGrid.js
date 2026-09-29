@@ -4,27 +4,18 @@ import {useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {categories,projects} from "@/lib/projects";
-import c1 from "@/lib/history-sprite/c1";
-import c2 from "@/lib/history-sprite/c2";
-import c3 from "@/lib/history-sprite/c3";
-import c4 from "@/lib/history-sprite/c4";
-import c5 from "@/lib/history-sprite/c5";
-import c6 from "@/lib/history-sprite/c6";
-import c7 from "@/lib/history-sprite/c7";
-
-const historicalSprite=`data:image/jpeg;base64,${c1}${c2}${c3}${c4}${c5}${c6}${c7}`;
 
 const historicalStudies=[
-  {number:1,col:0,row:0,title:"Roman bakery courtyard"},
-  {number:2,col:1,row:0,title:"Viking longhall gathering"},
-  {number:3,col:2,row:0,title:"Ottoman bazaar at dusk"},
-  {number:4,col:3,row:0,title:"Edo village canal"},
-  {number:5,col:4,row:0,title:"Medieval monastery cloister"},
-  {number:6,col:0,row:1,title:"Renaissance courtyard"},
-  {number:7,col:1,row:1,title:"Industrial harbour"},
-  {number:8,col:2,row:1,title:"Victorian railway station"},
-  {number:9,col:3,row:1,title:"Hilltop fortress"},
-  {number:10,col:4,row:1,title:"Gothic cathedral square"}
+  {number:1,image:"/portfolio/history/history-group-1.jpg",columns:3,col:0,title:"Roman bakery courtyard"},
+  {number:2,image:"/portfolio/history/history-group-1.jpg",columns:3,col:1,title:"Viking longhall gathering"},
+  {number:3,image:"/portfolio/history/history-group-1.jpg",columns:3,col:2,title:"Ottoman bazaar at dusk"},
+  {number:4,image:"/portfolio/history/history-group-2.jpg",columns:2,col:0,title:"Edo village canal"},
+  {number:5,image:"/portfolio/history/history-group-2.jpg",columns:2,col:1,title:"Medieval monastery cloister"},
+  {number:6,image:"/portfolio/history/history-group-3.jpg",columns:3,col:0,title:"Renaissance courtyard"},
+  {number:7,image:"/portfolio/history/history-group-3.jpg",columns:3,col:1,title:"Industrial harbour"},
+  {number:8,image:"/portfolio/history/history-group-3.jpg",columns:3,col:2,title:"Victorian railway station"},
+  {number:9,image:"/portfolio/history/history-group-4.jpg",columns:2,col:0,title:"Hilltop fortress"},
+  {number:10,image:"/portfolio/history/history-group-4.jpg",columns:2,col:1,title:"Gothic cathedral square"}
 ];
 
 const spookyStudies=[
@@ -42,15 +33,30 @@ const spookyStudies=[
   {number:12,col:2,row:3,direction:"Ruins & Sacred Spaces",title:"The Cloister Above the Tide",description:"A quieter monastic complex on the cliff edge, with cloisters, courtyards and sea-weathered stone contained within a finished display base."}
 ];
 
+const spookyDirections=["All","Gothic Interiors","Ruins & Sacred Spaces","Dark Streets & Woodland"];
+
+function spritePosition(col,columns){
+  return columns<=1 ? "0% 0%" : `${(col/(columns-1))*100}% 0%`;
+}
+
 export default function PortfolioGrid(){
   const [active,setActive]=useState("All");
+  const [spookyDirection,setSpookyDirection]=useState("All");
   const filtered=active==="All"?projects:projects.filter((project)=>project.tags.includes(active)||project.category===active);
   const showHistorical=active==="Historical";
   const showSpooky=active==="Spooky / Dark";
+  const visibleSpooky=spookyDirection==="All"
+    ? spookyStudies
+    : spookyStudies.filter((study)=>study.direction===spookyDirection);
+
+  const chooseCategory=(category)=>{
+    setActive(category);
+    if(category!=="Spooky / Dark") setSpookyDirection("All");
+  };
 
   return <>
     <div className="filter-row" role="group" aria-label="Filter portfolio">
-      {categories.map((category)=><button key={category} className={active===category?"filter-button active":"filter-button"} onClick={()=>setActive(category)} type="button">{category}</button>)}
+      {categories.map((category)=><button key={category} className={active===category?"filter-button active":"filter-button"} onClick={()=>chooseCategory(category)} type="button">{category}</button>)}
     </div>
 
     {showHistorical&&<section className="historical-gallery" aria-label="Historical miniature worlds">
@@ -62,8 +68,8 @@ export default function PortfolioGrid(){
         <p>Each scene is built piece by piece — architecture, surfaces, figures, vegetation, lighting and weathering are chosen to make the period feel lived-in rather than decorative. From intimate courtyards and workshops to stations, fortresses and cathedrals, every world is shaped around believable scale, careful craft and atmosphere.</p>
       </div>
       <div className="historical-photo-grid">
-        {historicalStudies.map(({number,col,row,title})=><figure className="historical-photo" key={number}>
-          <div className="historical-sprite-crop" role="img" aria-label={title} style={{backgroundImage:`url("${historicalSprite}")`,backgroundSize:"500% 200%",backgroundPosition:`${col*25}% ${row*100}%`}}/>
+        {historicalStudies.map(({number,image,columns,col,title})=><figure className="historical-photo" key={number}>
+          <div className="historical-sprite-crop" role="img" aria-label={title} style={{backgroundImage:`url("${image}")`,backgroundSize:`${columns*100}% 100%`,backgroundPosition:spritePosition(col,columns)}}/>
           <figcaption><span>{String(number).padStart(2,"0")}</span><span>{title}</span></figcaption>
         </figure>)}
       </div>
@@ -77,12 +83,20 @@ export default function PortfolioGrid(){
         </div>
         <p>Gothic rooms, weathered ruins, candlelit interiors and rain-dark streets are built around mood, scale and material detail. Stone is chipped and aged by hand, vegetation is layered into architecture, figures anchor the scene, and practical miniature lighting gives each world depth without relying on gore or spectacle.</p>
       </div>
-      <div className="spooky-direction-row" aria-label="Spooky portfolio directions">
-        <span>Gothic Interiors</span><span>Ruins & Sacred Spaces</span><span>Dark Streets & Woodland</span>
+
+      <div className="spooky-direction-row" role="group" aria-label="Filter Spooky / Dark worlds">
+        {spookyDirections.map((direction)=><button
+          key={direction}
+          type="button"
+          className={spookyDirection===direction?"spooky-direction active":"spooky-direction"}
+          aria-pressed={spookyDirection===direction}
+          onClick={()=>setSpookyDirection(direction)}
+        >{direction}</button>)}
       </div>
+
       <div className="spooky-photo-grid">
-        {spookyStudies.map(({number,col,row,direction,title,description})=><figure className="spooky-photo" key={number}>
-          <div className="spooky-sprite-crop" role="img" aria-label={title} style={{backgroundImage:'url("/portfolio/spooky/spooky-sprite.webp")',backgroundSize:"300% 400%",backgroundPosition:`${col*50}% ${row*(100/3)}%`}}/>
+        {visibleSpooky.map(({number,col,row,direction,title,description})=><figure className="spooky-photo" key={number}>
+          <div className="spooky-sprite-crop" role="img" aria-label={title} style={{backgroundImage:`url("/portfolio/spooky/spooky-row-${row+1}.jpg")`,backgroundSize:"300% 100%",backgroundPosition:spritePosition(col,3)}}/>
           <figcaption><span>{String(number).padStart(2,"0")}</span><span>{direction}</span></figcaption>
           <div className="spooky-photo-copy"><h3>{title}</h3><p>{description}</p></div>
         </figure>)}

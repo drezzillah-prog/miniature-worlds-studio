@@ -38,11 +38,14 @@
 .spooky-photo-copy h3{font-family:var(--serif);font-size:clamp(1.65rem,2.4vw,2.45rem);font-weight:400;margin:0 0 8px;color:var(--ink)}
 .spooky-photo-copy p{margin:0;color:#6b6258;line-height:1.7;max-width:620px}
 .spooky-direction-row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 34px}
-.spooky-direction-row span{border:1px solid var(--line);padding:9px 13px;text-transform:uppercase;letter-spacing:.11em;font-size:.62rem;color:#74695d}
+.spooky-direction{appearance:none;border:1px solid var(--line);background:transparent;padding:9px 13px;text-transform:uppercase;letter-spacing:.11em;font-size:.62rem;color:#74695d;transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+.spooky-direction:hover{border-color:#7f6a4d;transform:translateY(-1px)}
+.spooky-direction.active{background:var(--ink);color:var(--bone);border-color:var(--ink)}
 @media(max-width:720px){
   .historical-gallery-head,.spooky-gallery-head{grid-template-columns:1fr;gap:18px;margin-bottom:28px}
   .historical-photo-grid,.spooky-photo-grid{grid-template-columns:1fr;gap:32px}
   .historical-photo figcaption,.spooky-photo figcaption{font-size:.61rem}
   .spooky-photo-copy h3{font-size:2rem}
   .spooky-direction-row{margin-bottom:26px}
+  .spooky-direction{padding:10px 12px;font-size:.6rem}
 }
