@@ -8,6 +8,7 @@ const cards=[
   ["Terms & Conditions","How enquiries become contracts, quotes, staged payments, approvals, custom commissions, changes, delays and applicable law.","/legal/terms"],
   ["Shipping & Returns","Packing, delivery, transfer of risk, transit damage, ready-made returns and the personalised-goods withdrawal exception.","/legal/shipping-returns"],
   ["Guarantee & Aftercare","Statutory conformity rights, the studio's two-year technical aftercare, repairs, evidence and what is not a manufacturing fault.","/legal/guarantee-aftercare"],
+  ["Complaints & Disputes","How to raise a complaint, escalation, Romanian consumer protection and alternative dispute resolution without relying on the discontinued EU ODR platform.","/legal/complaints-disputes"],
   ["Product Safety & Care","Collector-object status, product-specific warnings, technical systems, safe use, maintenance, traceability and corrective action.","/legal/product-safety-care"],
   ["Privacy","What personal data may be processed, why, legal bases, retention criteria, service providers and data-subject rights.","/legal/privacy"],
   ["Cookies","What the current site stores, what it does not intentionally track, and what must happen before non-essential tracking is ever activated.","/legal/cookies"],

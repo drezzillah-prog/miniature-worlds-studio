@@ -6,6 +6,7 @@ export const legalLinks=[
   ["Terms & Conditions","/legal/terms"],
   ["Shipping & Returns","/legal/shipping-returns"],
   ["Guarantee & Aftercare","/legal/guarantee-aftercare"],
+  ["Complaints & Disputes","/legal/complaints-disputes"],
   ["Product Safety & Care","/legal/product-safety-care"],
   ["Privacy","/legal/privacy"],
   ["Cookies","/legal/cookies"],

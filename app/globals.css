@@ -260,3 +260,6 @@
   .footer-grid-legal{grid-template-columns:1fr 1fr}
   .footer-grid-legal>div:first-child,.footer-grid-legal .footer-note{grid-column:1/-1}
 }
+
+.legal-external{display:inline-block;margin-top:4px;text-decoration:underline;text-underline-offset:4px;color:var(--brass)}
+.legal-external:hover{color:var(--ink)}

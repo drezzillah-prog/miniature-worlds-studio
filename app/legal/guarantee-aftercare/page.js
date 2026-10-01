@@ -40,7 +40,10 @@ export default function GuaranteeAftercarePage(){return <>
     <h2>11. EU harmonised guarantee notice</h2>
     <p>EU and Romanian rules applicable from 27 September 2026 require a harmonised legal-guarantee notice when the statutory guarantee information is provided in covered consumer sales. When this website begins concluding online consumer contracts, the official, unedited EU notice will be displayed in the legally required colour format at the appropriate pre-contract stage. The current inquiry-only website does not yet present a checkout.</p>
 
-    <h2>12. Product-specific maintenance</h2>
+    <h2>12. Repairability, spare parts and maintenance information</h2>
+    <p>Where current consumer law requires repairability or spare-parts information for the category of good, the pre-contract offer will provide the applicable information made available by the manufacturer, including availability, estimated cost, ordering route, repair or maintenance instructions and relevant repair restrictions. Where a regulated repairability score applies to a product category, it will be displayed as required. If a piece includes digital elements requiring software updates, the applicable update and compatibility information will also be supplied where required.</p>
+
+    <h2>13. Product-specific maintenance</h2>
     <p>Maintenance access, replaceable components and expected service intervals vary by project. Museum and exhibition pieces may have a separate maintenance schedule, service manual and duty-cycle specification.</p>
     <p className="legal-updated">Last updated: 1 October 2026.</p>
   </article>
