@@ -26,6 +26,21 @@ const effectGroups=[
   ]}
 ];
 
+const designPrinciples=[
+  ["Scale consistency","Doors, windows, furniture, steps, objects and figures are proportioned coherently to one another so the world reads as a single physical system."],
+  ["Projective geometry","Perspective lines, vanishing points, points at infinity, sightlines and controlled projection are considered where the scene depends on them."],
+  ["Forced perspective","Where appropriate, controlled changes in scale and depth can make streets, buildings or landscapes feel longer or farther away than the physical footprint of the piece."],
+  ["Architectural plausibility","Wall thicknesses, openings, arches, roofs, stairs, beams and structural relationships are designed to feel physically believable rather than merely decorative."],
+  ["Period-appropriate construction language","Historical scenes consider proportions, masonry, timber work, roofing, windows, ornament and other architectural cues appropriate to the period and place represented."],
+  ["Human-scale design","Architecture and objects are checked against the figures that inhabit them: a stair should feel climbable, a table usable and a doorway credible."],
+  ["Material behaviour","Wood, stone, metal, glass, water, soil and vegetation are treated so that their visual behaviour supports the material they represent."],
+  ["Light follows space","Illumination is planned around architecture — where light originates, what blocks it, what reflects it and where believable shadow should remain."],
+  ["Environmental logic","Water falls and gathers plausibly; dampness, soot, wear, vegetation and weathering appear where the environment and use of the scene would reasonably create them."],
+  ["Movement with physical logic","Trains, wheels, doors, mills, gates and other moving elements are designed to move in a way that suits the object represented, even when the mechanism remains hidden."],
+  ["Designed viewing distance","Detail, contrast, texture and lighting are tuned to whether a piece will live on a private shelf, inside a display case, in a gallery or in a museum."],
+  ["Structural stability & serviceability","Large or technically complex pieces consider base rigidity, concealed systems, maintenance access, transport, replaceable parts and future servicing from the beginning."]
+];
+
 const aftercare=[
   ["Two-year protection","For private consumers in the EU, the statutory legal guarantee of conformity applies for at least two years. The studio also provides two-year technical aftercare for manufacturing or installation faults in integrated systems, without reducing mandatory consumer rights."],
   ["If the fault is ours","A verified manufacturing, installation or conformity fault attributable to the studio is remedied without charge. Reasonable transport required for the remedy is covered where required by applicable consumer law."],
@@ -42,6 +57,7 @@ export default function AtmosphereEngineeringPage(){return <>
 
   <nav className="page-map page-shell" aria-label="Atmosphere and engineering sections">
     <a href="#effects">Effects</a>
+    <a href="#architecture">Architecture & Scale</a>
     <a href="#approval">Final Approval</a>
     <a href="#aftercare">Two-Year Protection</a>
     <a href="#repairs">Repairs & Aftercare</a>
@@ -53,7 +69,23 @@ export default function AtmosphereEngineeringPage(){return <>
       <header><span>{group.number}</span><div><h3>{group.title}</h3><p>{group.copy}</p></div></header>
       <div className="effect-items">{group.items.map(([title,copy])=><article key={title}><h4>{title}</h4><p>{copy}</p></article>)}</div>
     </section>)}</div>
-    <div className="private-process"><p className="kicker light">Studio process</p><h2>Visible result. Private method.</h2><p>Materials, internal engineering and proprietary fabrication methods vary by project and remain part of the studio’s private process. The site explains what a world can do, not the formulas, internal systems or fabrication recipes behind it.</p></div>
+
+    <section className="design-logic" id="architecture">
+      <div className="design-logic-head">
+        <div><p className="kicker">Architecture, scale & perspective</p><h2>Built on the logic of the full-sized world.</h2></div>
+        <p>A convincing miniature does not ignore the rules of the full-sized world simply because it is small. Architecture, perspective, scale, material behaviour, lighting and structural logic are considered together so that the finished world feels physically believable from the viewpoints for which it was designed.</p>
+      </div>
+
+      <div className="design-principles">{designPrinciples.map(([title,copy],index)=><article key={title}><span>{String(index+1).padStart(2,"0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+
+      <div className="perceived-accuracy">
+        <p className="kicker light">Perceived accuracy</p>
+        <h2>Accuracy is not only measured with a ruler. It is also measured by the eye.</h2>
+        <p>Where necessary, scale, depth, contrast and perspective may be subtly adjusted so that the finished world reads correctly from its intended viewing position. Physical accuracy and perceived accuracy are not always identical; the design balances both.</p>
+      </div>
+    </section>
+
+    <div className="private-process"><p className="kicker light">Studio process</p><h2>The principle is visible. The method remains ours.</h2><p>We are happy to explain the visual and functional intention behind a project, while specific fabrication formulas, internal mechanisms, material combinations and proprietary construction methods remain part of the studio’s private process.</p></div>
   </section>
 
   <section className="approval-section" id="approval">
