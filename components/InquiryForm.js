@@ -1,7 +1,7 @@
 "use client";
 
 import {useMemo,useState} from "react";
-const initial={name:"",email:"",projectType:"Medium World",theme:"Historical",size:"",use:"",deadline:"",budget:"",references:""};
+const initial={name:"",email:"",projectType:"Medium World",theme:"Historical",effects:"Not sure yet",size:"",use:"",deadline:"",budget:"",references:""};
 
 export default function InquiryForm(){
   const [form,setForm]=useState(initial);
@@ -10,7 +10,7 @@ export default function InquiryForm(){
   const summary=useMemo(()=>[
     "MINIATURE WORLDS STUDIO — PROJECT INQUIRY","",
     "Name: "+(form.name||"—"),"Email: "+(form.email||"—"),"Project type: "+form.projectType,"Theme: "+form.theme,
-    "Approximate size: "+(form.size||"—"),"Intended use: "+(form.use||"—"),"Desired deadline: "+(form.deadline||"—"),"Budget range: "+(form.budget||"—"),"",
+    "Effects preference: "+form.effects,"Approximate size: "+(form.size||"—"),"Intended use: "+(form.use||"—"),"Desired deadline: "+(form.deadline||"—"),"Budget range: "+(form.budget||"—"),"",
     "Reference ideas / story:",form.references||"—"
   ].join("\n"),[form]);
   function update(event){setForm((current)=>({...current,[event.target.name]:event.target.value}));setPrepared(false);setCopied(false);}
@@ -22,6 +22,7 @@ export default function InquiryForm(){
         <label><span>Email</span><input required type="email" name="email" value={form.email} onChange={update} autoComplete="email"/></label>
         <label><span>Project type</span><select name="projectType" value={form.projectType} onChange={update}><option>Tiny World</option><option>Medium World</option><option>Large World</option><option>Museum / Exhibition World</option><option>Not sure yet</option></select></label>
         <label><span>Desired theme</span><select name="theme" value={form.theme} onChange={update}><option>Historical</option><option>Spooky / Dark / Gothic</option><option>City / Urban</option><option>Countryside / Rural</option><option>Room / Interior</option><option>Museum / Institutional</option><option>Other / Mixed</option></select></label>
+        <label><span>Effects preference</span><select name="effects" value={form.effects} onChange={update}><option>Fully static world</option><option>Selected practical effects</option><option>Not sure yet</option></select></label>
         <label><span>Approximate size</span><input name="size" value={form.size} onChange={update} placeholder="Footprint, scale, shelf size, or 'not sure'"/></label>
         <label><span>Intended use</span><input name="use" value={form.use} onChange={update} placeholder="Personal, collector, display, exhibition…"/></label>
         <label><span>Desired deadline</span><input name="deadline" value={form.deadline} onChange={update} placeholder="Date or flexible window"/></label>
