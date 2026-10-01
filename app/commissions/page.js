@@ -2,8 +2,8 @@ import Link from "next/link";
 export const metadata={title:"Commission Process"};
 const steps=[
 ["01","Inquiry","Share the type of world, intended use, atmosphere, approximate footprint, deadline, budget range, and any reference material you already have."],
-["02","Discussion & concept","The studio clarifies what the piece needs to communicate, what must be accurate, what can be invented, and which scale best supports the idea."],
-["03","Proposal","You receive a defined scope with concept direction, estimated dimensions, timeline, major materials or techniques, delivery assumptions, and project quote."],
+["02","Discussion & concept","The studio clarifies what the piece needs to communicate, what must be accurate, what can be invented, which scale best supports the idea, and whether the world should remain fully static or include selected integrated effects."],
+["03","Proposal","You receive a defined scope with concept direction, estimated dimensions, timeline, major materials or techniques, any selected effects and their systems, delivery assumptions, and project quote."],
 ["04","Staged payment","Custom work is paid in agreed stages. Production begins only after the first required stage is received."],
 ["05","Production","Architecture, terrain, interiors, figures, props, paint, lighting, weathering, and assembly are developed according to the approved scope."],
 ["06","Progress updates","Milestone images or notes are shared at appropriate build stages. Updates are for visibility and agreed decisions, not continuous redesign."],

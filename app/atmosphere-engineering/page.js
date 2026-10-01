@@ -52,7 +52,7 @@ export default function AtmosphereEngineeringPage(){return <>
   <section className="page-hero page-shell atmosphere-hero">
     <p className="kicker">Atmosphere & Engineering</p>
     <h1>Small worlds. Real atmosphere.</h1>
-    <p className="lede">Selected commissions can incorporate concealed lighting, atmospheric effects, moving elements, water, weathering and other practical systems designed to make a miniature environment feel inhabited rather than static.</p>
+    <p className="lede">Every miniature world can be commissioned as a completely static piece, or with a selected combination of integrated effects. Lighting, atmosphere, movement, water, sound and other practical systems are optional tools — never requirements.</p>
   </section>
 
   <nav className="page-map page-shell" aria-label="Atmosphere and engineering sections">
@@ -64,7 +64,11 @@ export default function AtmosphereEngineeringPage(){return <>
   </nav>
 
   <section className="effects-section page-shell" id="effects">
-    <div className="effects-intro"><div><p className="kicker">Capabilities</p><h2>The effect always serves the world.</h2></div><p>Movement, lighting and atmosphere are selected to support the period, environment and story of a piece — never added simply because they are possible.</p></div>
+    <div className="effects-intro"><div><p className="kicker">Capabilities</p><h2>The effect always serves the world.</h2></div><p>Clients can choose a fully static miniature or select only the effects that genuinely support the scene. Movement, lighting and atmosphere are never added simply because they are possible.</p></div>
+    <div className="effect-choice">
+      <article><span>Static world</span><h3>Pure miniature craft.</h3><p>Architecture, terrain, figures, interiors, materials and atmosphere are carried entirely by the physical build, with no powered or moving systems required.</p></article>
+      <article><span>Selected effects</span><h3>Only what the world needs.</h3><p>Add lighting, water, sound, mist, motion or other integrated effects individually or in combination. The proposal identifies exactly which systems are included.</p></article>
+    </div>
     <div className="effect-groups">{effectGroups.map((group)=><section className="effect-group" key={group.title}>
       <header><span>{group.number}</span><div><h3>{group.title}</h3><p>{group.copy}</p></div></header>
       <div className="effect-items">{group.items.map(([title,copy])=><article key={title}><h4>{title}</h4><p>{copy}</p></article>)}</div>
