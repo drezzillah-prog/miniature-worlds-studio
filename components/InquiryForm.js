@@ -1,6 +1,7 @@
 "use client";
 
 import {useMemo,useState} from "react";
+import Link from "next/link";
 
 const initial={name:"",email:"",projectType:"Medium World",theme:"Historical",size:"",use:"",deadline:"",budget:"",references:""};
 
@@ -29,7 +30,7 @@ export default function InquiryForm(){
         <label><span>Budget range</span><input name="budget" value={form.budget} onChange={update} placeholder="Your working range, or 'need guidance'"/></label>
       </div>
       <label className="full-field"><span>Reference ideas, place, memory, atmosphere, or story</span><textarea name="references" value={form.references} onChange={update} rows="7" placeholder="Tell the studio what the world should feel like, not only what it should contain."/></label>
-      <div className="form-actions"><button className="button brass" type="submit">Prepare project brief</button><p>Direct email/CRM delivery can be connected once the studio inbox is chosen. This version never pretends to send data somewhere it does not.</p></div>
+      <div className="form-actions"><button className="button brass" type="submit">Prepare project brief</button><p>Nothing is transmitted when you press this button. It prepares a local summary you can copy. See <Link href="/legal/privacy">Privacy</Link> and <Link href="/legal/terms">Terms</Link>.</p></div>
     </form>
     {prepared&&<section className="prepared-brief" aria-live="polite">
       <div><p className="kicker">Your brief is ready</p><h3>One clean summary for the first studio conversation.</h3></div>
