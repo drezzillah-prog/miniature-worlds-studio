@@ -48,7 +48,8 @@ const cityStudies=[
   {number:9,image:"/portfolio/cities/cities-group-4.jpg",columns:2,col:0,title:"Byzantine Shore",tags:["Historic Cities","Waterfronts & Canals"],description:"A historical coastal settlement where pale stone, domes, terraces and the sea are built into one continuous miniature landscape."},
   {number:10,image:"/portfolio/cities/cities-group-4.jpg",columns:2,col:1,title:"Mediterranean Village at Sunset",tags:["Historic Cities","Waterfronts & Canals"],description:"A warm hillside village of small houses, steps and planting, shaped around the transition from architecture to landscape and sea."}
 ];
-const cityDirections=["All","Streets & Squares","Waterfronts & Canals","Historic Cities","Night & Rain"];\n
+const cityDirections=["All","Streets & Squares","Waterfronts & Canals","Historic Cities","Night & Rain"];
+
 const countrysideStudies=[
   {number:1,image:"/portfolio/countryside/countryside-01.jpg",title:"The Mill House Stream",tags:["Village Life","Waterside Rural"],description:"A self-contained stone cottage and watermill world built around a working stream, footbridge, garden planting and warm interior light, with the finished base clearly framing the scene as a physical miniature."},
   {number:2,image:"/portfolio/countryside/countryside-02.jpg",title:"Hill Village & Windmill",tags:["Farms & Working Land","Mountain & Alpine"],description:"A terraced hillside settlement with a windmill, stone cottages, paths and productive garden plots, balancing rural architecture with the working landscape around it."},
@@ -86,18 +87,21 @@ export default function PortfolioGrid(){
   const [active,setActive]=useState("All");
   const [historyDirection,setHistoryDirection]=useState("All");
   const [spookyDirection,setSpookyDirection]=useState("All");
-  const [cityDirection,setCityDirection]=useState("All");\n  const [countrysideDirection,setCountrysideDirection]=useState("All");
+  const [cityDirection,setCityDirection]=useState("All");
+  const [countrysideDirection,setCountrysideDirection]=useState("All");
 
   const filtered=active==="All"?projects:projects.filter((project)=>project.tags.includes(active)||project.category===active);
   const showHistorical=active==="Historical";
   const showSpooky=active==="Spooky / Dark";
-  const showCities=active==="Cities";\n  const showCountryside=active==="Countryside";
+  const showCities=active==="Cities";
+  const showCountryside=active==="Countryside";
 
   const chooseCategory=(category)=>{
     setActive(category);
     setHistoryDirection("All");
     setSpookyDirection("All");
-    setCityDirection("All");\n    setCountrysideDirection("All");
+    setCityDirection("All");
+    setCountrysideDirection("All");
   };
 
   return <>
