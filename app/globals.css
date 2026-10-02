@@ -279,3 +279,7 @@
   .effect-choice article+article{border-left:0;border-top:1px solid var(--line)}
   .service-choice{gap:18px;padding-bottom:50px}
 }
+
+/* Countryside individual model photography */
+.study-image-file{position:relative;overflow:hidden;background:#171512}
+.study-image-file img{object-fit:cover}

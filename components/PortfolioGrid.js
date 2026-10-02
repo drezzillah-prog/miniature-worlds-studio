@@ -48,7 +48,32 @@ const cityStudies=[
   {number:9,image:"/portfolio/cities/cities-group-4.jpg",columns:2,col:0,title:"Byzantine Shore",tags:["Historic Cities","Waterfronts & Canals"],description:"A historical coastal settlement where pale stone, domes, terraces and the sea are built into one continuous miniature landscape."},
   {number:10,image:"/portfolio/cities/cities-group-4.jpg",columns:2,col:1,title:"Mediterranean Village at Sunset",tags:["Historic Cities","Waterfronts & Canals"],description:"A warm hillside village of small houses, steps and planting, shaped around the transition from architecture to landscape and sea."}
 ];
-const cityDirections=["All","Streets & Squares","Waterfronts & Canals","Historic Cities","Night & Rain"];
+const cityDirections=["All","Streets & Squares","Waterfronts & Canals","Historic Cities","Night & Rain"];\n
+const countrysideStudies=[
+  {number:1,image:"/portfolio/countryside/countryside-01.jpg",title:"The Mill House Stream",tags:["Village Life","Waterside Rural"],description:"A self-contained stone cottage and watermill world built around a working stream, footbridge, garden planting and warm interior light, with the finished base clearly framing the scene as a physical miniature."},
+  {number:2,image:"/portfolio/countryside/countryside-02.jpg",title:"Hill Village & Windmill",tags:["Farms & Working Land","Mountain & Alpine"],description:"A terraced hillside settlement with a windmill, stone cottages, paths and productive garden plots, balancing rural architecture with the working landscape around it."},
+  {number:3,image:"/portfolio/countryside/countryside-03.jpg",title:"Mill Lane Village",tags:["Village Life","Waterside Rural"],description:"A compact village lane gathered around a watermill and stone bridge, with figures, planting and glowing windows making the scene feel inhabited without extending beyond its display base."},
+  {number:4,image:"/portfolio/countryside/countryside-04.jpg",title:"Rain on the Village Lane",tags:["Village Life","Woodland & Seasonal"],description:"An English-style village after rain, where wet stone, warm lamps, garden walls and tiny pedestrians create atmosphere while the edges of the handcrafted world remain visible."},
+  {number:5,image:"/portfolio/countryside/countryside-05.jpg",title:"Nordic Shore at Dusk",tags:["Waterside Rural","Woodland & Seasonal"],description:"A northern lakeside settlement of timber houses, jetty and dark water, using reflections and restrained lighting to bring a quiet rural shoreline to life."},
+  {number:6,image:"/portfolio/countryside/countryside-06.jpg",title:"Snowbound Alpine Hamlet",tags:["Mountain & Alpine","Woodland & Seasonal"],description:"A winter mountain hamlet with deep snow, timber-and-stone chalets, a chapel and frozen stream, designed as a complete seasonal world rather than an endless alpine backdrop."},
+  {number:7,image:"/portfolio/countryside/countryside-07.jpg",title:"Vineyard at Last Light",tags:["Farms & Working Land","Village Life"],description:"A Mediterranean vineyard estate of terraced vines, stone houses and a sheltered courtyard, with the working rows of vines becoming part of the architecture of the miniature."},
+  {number:8,image:"/portfolio/countryside/countryside-08.jpg",title:"The Farm After Rain",tags:["Farms & Working Land","Woodland & Seasonal"],description:"A muddy working farm with barn, cottage, livestock and waterlogged tracks, focused on believable use, wear and weather rather than an idealised rural postcard."},
+  {number:9,image:"/portfolio/countryside/countryside-09.jpg",title:"Fishermen’s Cove",tags:["Waterside Rural","Village Life"],description:"A rocky fishing hamlet with timber jetties, boats, nets and small cottages, where textured water and weathered structures create a finite coastal scene."},
+  {number:10,image:"/portfolio/countryside/countryside-10.jpg",title:"Cabin Above the Stream",tags:["Woodland & Seasonal","Mountain & Alpine"],description:"A secluded woodland cabin beside a fast stream and footbridge, using rock, timber, moss and layered vegetation to make the miniature feel naturally embedded in its terrain."},
+  {number:11,image:"/portfolio/countryside/countryside-11.jpg",title:"Autumn Market Day",tags:["Village Life","Woodland & Seasonal"],description:"A village square during harvest season, with market stalls, church, pumpkins and autumn foliage arranged as a complete community scene inside a clearly finished display base."},
+  {number:12,image:"/portfolio/countryside/countryside-12.jpg",title:"Monastery Garden",tags:["Village Life","Mountain & Alpine"],description:"A rural monastery complex of stone arcades, cultivated gardens and old trees, pairing sacred architecture with the practical rhythms of a self-contained country settlement."},
+  {number:13,image:"/portfolio/countryside/countryside-13.jpg",title:"The Village Pond",tags:["Village Life","Waterside Rural"],description:"A spring village centred on a pond, stone bridge and blossoming trees, with market activity and cottages grouped around the water as a compact miniature composition."},
+  {number:14,image:"/portfolio/countryside/countryside-14.jpg",title:"Apple Harvest Farm",tags:["Farms & Working Land","Woodland & Seasonal"],description:"An orchard and cider-farm scene at harvest, with crates, barn activity, muddy tracks and autumn colour showing rural work as part of the story of the landscape."},
+  {number:15,image:"/portfolio/countryside/countryside-15.jpg",title:"Mountain Chapel & Sheepfold",tags:["Mountain & Alpine","Farms & Working Land"],description:"A highland hamlet with chapel, sheepfold, stone paths and a small waterfall, using elevation and terracing to create depth within a visibly bounded model."},
+  {number:16,image:"/portfolio/countryside/countryside-16.jpg",title:"Canal Lock Cottage",tags:["Waterside Rural","Village Life"],description:"A lock-side cottage world with narrowboat, stone walls and working gates, turning the engineering of a rural canal into part of the miniature’s visual narrative."},
+  {number:17,image:"/portfolio/countryside/countryside-17.jpg",title:"The Mediterranean Bakery",tags:["Village Life","Farms & Working Land"],description:"A tiny bakery courtyard surrounded by stone houses, herbs, olive planting and outdoor tables, built as an intimate rural-commercial corner rather than a full town street."},
+  {number:18,image:"/portfolio/countryside/countryside-18.jpg",title:"Forest Sawmill",tags:["Farms & Working Land","Woodland & Seasonal"],description:"A timber-working scene with water-powered machinery, stacked logs, bridge and forest cabin, combining rural industry with the stream and woodland that support it."},
+  {number:19,image:"/portfolio/countryside/countryside-19.jpg",title:"Spring Village Green",tags:["Village Life","Woodland & Seasonal"],description:"A flowering village green with stone cottages, market stalls, church and pond, composed to feel lively and seasonal while remaining unmistakably a handcrafted tabletop world."},
+  {number:20,image:"/portfolio/countryside/countryside-20.jpg",title:"Lighthouse Harbour",tags:["Waterside Rural","Village Life"],description:"A small working harbour beneath a lighthouse, with fishing boat, stone quay and weathered cottages set against a finite field of textured water."},
+  {number:21,image:"/portfolio/countryside/countryside-21.jpg",title:"Mediterranean Hill Village",tags:["Mountain & Alpine","Village Life"],description:"A stepped stone village with cypress, olive trees, terraces and chapel architecture, using height and narrow paths to suggest a larger settlement within a contained base."}
+];
+const countrysideDirections=["All","Village Life","Farms & Working Land","Woodland & Seasonal","Mountain & Alpine","Waterside Rural"];
+
 
 function spritePosition(col,columns){
   return columns<=1 ? "0% 0%" : `${(col/(columns-1))*100}% 0%`;
@@ -61,18 +86,18 @@ export default function PortfolioGrid(){
   const [active,setActive]=useState("All");
   const [historyDirection,setHistoryDirection]=useState("All");
   const [spookyDirection,setSpookyDirection]=useState("All");
-  const [cityDirection,setCityDirection]=useState("All");
+  const [cityDirection,setCityDirection]=useState("All");\n  const [countrysideDirection,setCountrysideDirection]=useState("All");
 
   const filtered=active==="All"?projects:projects.filter((project)=>project.tags.includes(active)||project.category===active);
   const showHistorical=active==="Historical";
   const showSpooky=active==="Spooky / Dark";
-  const showCities=active==="Cities";
+  const showCities=active==="Cities";\n  const showCountryside=active==="Countryside";
 
   const chooseCategory=(category)=>{
     setActive(category);
     setHistoryDirection("All");
     setSpookyDirection("All");
-    setCityDirection("All");
+    setCityDirection("All");\n    setCountrysideDirection("All");
   };
 
   return <>
@@ -131,7 +156,25 @@ export default function PortfolioGrid(){
       </div>
     </section>}
 
-    {!showHistorical&&!showSpooky&&!showCities&&<div className="portfolio-grid">
+
+    {showCountryside&&<section className="study-gallery" aria-label="Countryside miniature worlds">
+      <div className="study-gallery-head">
+        <div><p className="kicker">Countryside</p><h2>Rural worlds with real edges.</h2></div>
+        <p>Villages, farms, woodland, mountain settlements and waterside life are treated as physical miniature objects. Every scene is visibly contained by its finished base, so terrain and architecture end naturally instead of dissolving into a painted or infinite background.</p>
+      </div>
+      <div className="study-direction-row" role="group" aria-label="Filter countryside worlds">
+        {countrysideDirections.map((direction)=><button key={direction} type="button" className={countrysideDirection===direction?"study-direction active":"study-direction"} aria-pressed={countrysideDirection===direction} onClick={()=>setCountrysideDirection(direction)}>{direction}</button>)}
+      </div>
+      <div className="study-photo-grid">
+        {countrysideStudies.filter((study)=>matches(study,countrysideDirection)).map(({number,image,title,tags,description})=><figure className="study-photo" key={number}>
+          <div className="study-image study-image-file"><Image src={image} alt={title} fill sizes="(max-width: 720px) 100vw, 50vw"/></div>
+          <figcaption><span>{String(number).padStart(2,"0")}</span><span>{tags[0]}</span></figcaption>
+          <div className="study-photo-copy"><h3>{title}</h3><p>{description}</p></div>
+        </figure>)}
+      </div>
+    </section>}
+
+    {!showHistorical&&!showSpooky&&!showCities&&!showCountryside&&<div className="portfolio-grid">
       {filtered.map((project,index)=><article className="portfolio-card" key={project.slug}>
         <Link className="portfolio-image" href={"/portfolio/"+project.slug}>
           <Image src={project.image} alt={project.title} fill sizes="(max-width: 800px) 100vw, 50vw" priority={index<2}/>
